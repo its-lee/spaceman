@@ -5,7 +5,7 @@ import { Diagnostics } from './helpers/diagnostics';
 
 const scene = new three.Scene();
 scene.add(new three.AmbientLight(0xffffff));
-scene.background = new three.TextureLoader().load('./public/assets/images/space.jpg');
+scene.background = new three.TextureLoader().load('/assets/images/space.jpg');
 
 const camera = new three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 30;
