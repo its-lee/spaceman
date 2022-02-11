@@ -1,6 +1,6 @@
 // vite.config.js
 import { defineConfig } from 'vite';
-import { name } from 'package.json';
+import { name } from './package.json';
 
 export default defineConfig({
   // This is required so when hosting on github pages, index.html uses relative paths rather than
