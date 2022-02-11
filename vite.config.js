@@ -5,5 +5,5 @@ export default defineConfig({
   // This is required so when hosting on github pages, index.html uses relative paths rather than
   // absolute, which is necessary as the base url is https://cygnut.github.io/spaceman/, not
   // something like https://cygnut.github.io/ - where absolute rather than relative would work.
-  base: ''
+  base: '/spaceman/'
 });
