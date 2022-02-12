@@ -3,6 +3,13 @@ import * as three from 'three';
 import { addMoon, addStar } from './helpers/meshes';
 import { Diagnostics } from './helpers/diagnostics';
 
+const getWindowDimensions = () => {
+  return {
+    width: window.innerWidth,
+    height: window.innerHeight
+  };
+};
+
 const scene = new three.Scene();
 scene.add(new three.AmbientLight(0xffffff));
 scene.background = new three.TextureLoader().load('./images/space.jpg');
@@ -12,8 +19,9 @@ camera.position.z = 30;
 camera.position.x = -3;
 
 const renderer = new three.WebGLRenderer({ canvas: document.querySelector('#bg') });
+const dimensions = getWindowDimensions();
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(dimensions.width, dimensions.height);
 renderer.render(scene, camera);
 
 const diagnostics = new Diagnostics(scene, camera, renderer, false);
@@ -58,8 +66,7 @@ const handleViewportResize = (renderer, camera) => {
   // a really great piece of handling for when you resize the viewport. This also handles when the user rotates
   // the phone from portrait to landscape on mobile!
   //   The alternative is forcing the user to have to refresh to capture the new context.
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  const { width, height } = getWindowDimensions();
   renderer.setSize(width, height);
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
