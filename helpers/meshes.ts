@@ -5,12 +5,16 @@ const moonMaterial = new three.MeshStandardMaterial({
   normalMap: new three.TextureLoader().load('./images/normal.jpg'),
 });
 
-export function addMoon(geometry, position) {
+interface Position {
+  x?: number,
+  y?: number,
+  z?: number
+}
+
+export function addMoon(geometry: three.BufferGeometry, position? : Position) {
   const moon = new three.Mesh(geometry, moonMaterial);
   if (position) {
-    for (const [ name, value ] of Object.entries(position)) {
-      moon.position[name] = value;
-    }
+      moon.position.set(position.x || 0, position.y || 0, position.z || 0);
   }
   return moon;
 };
@@ -22,7 +26,7 @@ export function addStar() {
   );
 
   const [x, y, z] = Array(3)
-    .fill()
+    .fill(0)
     .map(() => three.MathUtils.randFloatSpread(100));
 
   star.position.set(x, y, z);

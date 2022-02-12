@@ -18,7 +18,7 @@ const camera = new three.PerspectiveCamera(75, window.innerWidth / window.innerH
 camera.position.z = 30;
 camera.position.x = -3;
 
-const renderer = new three.WebGLRenderer({ canvas: document.querySelector('#bg') });
+const renderer = new three.WebGLRenderer({ canvas: document.querySelector('#bg') as HTMLCanvasElement });
 const dimensions = getWindowDimensions();
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(dimensions.width, dimensions.height);
@@ -37,12 +37,12 @@ const torusKnotMoon = addMoon(new three.TorusKnotGeometry(6, 1, 100, 16), { x: -
 scene.add(torusKnotMoon);
 
 // Stars
-Array(200).fill().forEach(() => scene.add(addStar()));
+Array(200).fill(0).forEach(() => scene.add(addStar()));
 
-const incrementRotation = (obj, x, y, z) => {
-  obj.rotation.x += x;
-  obj.rotation.y += y;
-  obj.rotation.z += z;
+const incrementRotation = (mesh: three.Mesh, x: number, y: number, z: number) => {
+  mesh.rotation.x += x;
+  mesh.rotation.y += y;
+  mesh.rotation.z += z;
 };
 
 // Scroll Animation
@@ -61,7 +61,7 @@ const moveCamera = () => {
 document.body.onscroll = moveCamera;
 moveCamera();
 
-const handleViewportResize = (renderer, camera) => {
+const handleViewportResize = (renderer: three.Renderer, camera: three.PerspectiveCamera) => {
   // From https://stackoverflow.com/questions/19827030/renderer-setsize-calculation-by-percent-of-screen-three-js - 
   // a really great piece of handling for when you resize the viewport. This also handles when the user rotates
   // the phone from portrait to landscape on mobile!

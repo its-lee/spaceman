@@ -2,7 +2,9 @@ import * as three from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export class Diagnostics {
-  constructor(scene, camera, renderer, enabled = false) {
+  controls: OrbitControls;
+
+  constructor(scene: three.Scene, camera: three.Camera, renderer: three.Renderer, enabled = false) {
     if (!enabled) {
       return;
     }
