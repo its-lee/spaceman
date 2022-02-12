@@ -53,6 +53,21 @@ const moveCamera = () => {
 document.body.onscroll = moveCamera;
 moveCamera();
 
+const handleViewportResize = (renderer, camera) => {
+  // From https://stackoverflow.com/questions/19827030/renderer-setsize-calculation-by-percent-of-screen-three-js - 
+  // a really great piece of handling for when you resize the viewport. This also handles when the user rotates
+  // the phone from portrait to landscape on mobile!
+  //   The alternative is forcing the user to have to refresh to capture the new context.
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  renderer.setSize(width, height);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+}; 
+
+window.addEventListener("resize", () => handleViewportResize(renderer, camera));
+
+
 // Animation Loop
 const animate = () => {
   // After the initial call to this function, set up this function to continue being called every
