@@ -1,8 +1,8 @@
 import * as three from 'three';
 
 const moonMaterial = new three.MeshStandardMaterial({
-  map: new three.TextureLoader().load('/images/moon.jpg'),
-  normalMap: new three.TextureLoader().load('/images/normal.jpg'),
+  map: new three.TextureLoader().load('./images/moon.jpg'),
+  normalMap: new three.TextureLoader().load('./images/normal.jpg'),
 });
 
 export function addMoon(geometry, position) {
