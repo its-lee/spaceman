@@ -57,6 +57,7 @@ blockquote {
   margin: 0;
   padding: 0;
   margin-bottom: var(--spacing);
+  text-align: center;
 }
 
 blockquote p {
@@ -86,6 +87,11 @@ blockquote p {
   
   blockquote {
     grid-column: 2 / span 9;
+    text-align: initial;
+  }
+
+  blockquote p {
+    font-size: 4rem;
   }
   
   .right {
