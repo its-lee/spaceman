@@ -5,8 +5,8 @@ import { Diagnostics } from './helpers/diagnostics';
 
 const getWindowDimensions = () => {
   return {
-    width: window.innerWidth,
-    height: window.innerHeight
+    width: window.outerWidth || window.innerWidth,
+    height: window.outerHeight || window.innerHeight
   };
 };
 
