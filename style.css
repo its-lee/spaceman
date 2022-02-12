@@ -30,6 +30,7 @@ h1, h2, h3, blockquote {
   font-family: elevon, sans-serif;
   font-weight: 700;
   font-style: normal;
+  text-align: center;
 }
 
 canvas {
@@ -43,10 +44,11 @@ header {
   font-size: 1.5rem;
   padding: 2rem;
   margin-bottom: var(--spacing);
+  text-align: center;
 }
 
 section {
-  padding: 1rem;
+  padding: 1.5rem;
   background: var(--dark-bg);
   font-size: 1.25rem;
   line-height: 1.5;
@@ -76,9 +78,14 @@ blockquote p {
     padding: 120px 0;    
   }
   
+  h1, h2, h3, blockquote {
+    text-align: initial;
+  }
+
   header {
     font-size: 2.5rem;
     grid-column: 2 / span 5;
+    text-align: initial;
   }
   
   section {
