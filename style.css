@@ -21,16 +21,9 @@ main {
   z-index: 99;
   position: absolute;
   width: 100%;
-
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-
-  padding-top: 120px;
-  padding-bottom: 120px;
-  padding-left: 0;
-  padding-right: 0;  
+  margin: 0 auto;  
+  left: 0;
+  right: 0;
 }
 
 h1, h2, h3, blockquote {
@@ -69,7 +62,7 @@ blockquote {
 blockquote p {
   color: black;
   background-color: white;
-  font-size: 4rem;
+  font-size: 2rem;
   display: inline;
   line-height: 1;
 }
@@ -78,6 +71,8 @@ blockquote p {
   main {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+
+    padding: 120px 0;    
   }
   
   header {
