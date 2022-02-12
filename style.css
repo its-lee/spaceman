@@ -22,10 +22,7 @@ main {
   position: absolute;
   width: 100%;
   margin: 0px auto;
-  padding: 120px 0px;
-
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  padding: 120px 0px;  
 }
 
 h1, h2, h3, blockquote {
@@ -42,14 +39,12 @@ canvas {
 
 header {
   background: var(--dark-bg);
-  grid-column: 2 / span 5;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   padding: 2rem;
   margin-bottom: var(--spacing);
 }
 
 section {
-  grid-column: 2 / 8;
   padding: 1rem;
   background: var(--dark-bg);
   font-size: 1.25rem;
@@ -60,7 +55,6 @@ section {
 blockquote {
   margin: 0;
   padding: 0;
-  grid-column: 2 / span 9;
   margin-bottom: var(--spacing);
 }
 
@@ -72,6 +66,26 @@ blockquote p {
   line-height: 1;
 }
 
-.right {
-  grid-column: 6 / 12;
+@media (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  header {
+    font-size: 2.5rem;
+    grid-column: 2 / span 5;
+  }
+  
+  section {
+    grid-column: 2 / 8;
+  }
+  
+  blockquote {
+    grid-column: 2 / span 9;
+  }
+  
+  .right {
+    grid-column: 6 / 12;
+  }
 }
