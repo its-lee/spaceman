@@ -6,6 +6,7 @@
       "importHelpers": true,
       "isolatedModules": true,
       "noEmit": true,
+      "strict": true,
       "noImplicitAny": true,
       "strictNullChecks": true
     }
