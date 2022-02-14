@@ -7,7 +7,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: npm ci
-      - name: i18n report
-        run: npm run i18n:report
       - name: Build
         run: npm run build
